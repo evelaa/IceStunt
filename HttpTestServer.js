@@ -1,9 +1,14 @@
 var http = require("http");
 
-http.createServer(function(request,response){
-	response.writeHead(200, {"Content-Type":"text/html"});
-	response.write("Holi");
-	response.end('Hello\n');
-}).listen(8888);
+function SetUp(){
+	function onRequest(req,res){
+		console.log("Peticion recibida");
+		response.writeHead(200,{"Content-Type":"text/html"});
+		response.end("Hello\n");
+	}
 
-console.log("Server running on 8888");
+	http.createServer(onRequest).listen(8888);
+	console.log("Server start at port 8888")
+}
+
+exports.SetUp= SetUp ;
